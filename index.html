@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Cell</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+           <a href="https://www.instagram.com/ecellmnnit/?hl=en"><img class="logo" src="images/logo.jpg"></a>
+        </div>
+        <ul class="navlist" id="naviList">
+            <li class="list-item"><a href="page2.html">Home</a></li>
+            <li class="list-item"><a href="index.html">Grid</a></li>
+            <li class="list-item"><a href="https://www.linkedin.com/in/sneh-p-045a44123/">LinkedIn</a></li>
+
+        </ul>
+        
+        <div class="menu" id="toggleButton">
+            <div class="menu-lines"></div>
+            <div class="menu-lines"></div>
+            <div class="menu-lines"></div>
+        </div>
+
+           
+        
+    </nav>
+
+    <div class="container">
+        <div class="cont1"></div>
+        <div class="ecell"><img src="images/ecell.jpg" style="width: 330px; height: 330px; padding: 10px 10px 10px 10px;"></div>
+        <div class="grid-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square" id="last-square"></div>
+        </div>
+
+        <script>
+            const squares = document.querySelectorAll('.square');
+            const lastSquare = document.getElementById('last-square');
+            let clickCount = 0;
+
+            squares.forEach(square => {
+                square.addEventListener('click', () => {
+                    if (square === lastSquare) {
+                        clickCount = 0;
+                        squares.forEach(square => {
+                            square.style.backgroundColor = 'blue';
+                        });
+                    } else {
+                        square.style.backgroundColor = 'red';
+                        clickCount++;
+                        lastSquare.style.order = clickCount;
+                    }
+                });
+            });
+        </script>
+    </div>
+    
+</body>
+<script>
+    const toggleButton = document.getElementById('toggleButton');
+    const navList= document.getElementById('naviList');
+
+    toggleButton.addEventListener('click', ()=>{
+        navList.classList.toggle('active');
+    })
+</script>
+</html>
